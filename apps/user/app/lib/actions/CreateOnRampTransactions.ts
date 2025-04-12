@@ -23,4 +23,7 @@ export async function createOnRampTransaction(amount:number, provider:string){
             token:token
         }
     })
+    return {
+        message: "On ramp transaction added"
+    }
 }

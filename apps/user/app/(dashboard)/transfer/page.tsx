@@ -4,54 +4,79 @@ import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransaction";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
+import { redirect } from "next/navigation";
 
-async function getBalance() {
-    const session = await getServerSession(authOptions);
-    const balance = await prisma.balance.findFirst({
-        where: {
-            userId: Number(session?.user?.id)
-        }
-    });
-    return {
-        amount: balance?.amount || 0,
-        locked: balance?.locked || 0
+async function getBalance(userId: number) {
+  const balance = await prisma.balance.findFirst({
+    where: {
+      userId
     }
+  });
+
+  return {
+    amount: balance?.amount || 0,
+    locked: balance?.locked || 0
+  };
 }
 
-async function getOnRampTransactions() {
-    const session = await getServerSession(authOptions);
-    const txns = await prisma.onRampTransaction.findMany({
-        where: {
-            userId: Number(session?.user?.id)
-        }
-    });
-    return txns.map(t => ({
-        time: t.startTime,
-        amount: t.amount,
-        status: t.status,
-        provider: t.provider
-    }))
+async function getOnRampTransactions(userId: number) {
+  const txns = await prisma.onRampTransaction.findMany({
+    where: {
+      userId
+    }
+  });
+
+  return txns.map(t => ({
+    time: t.startTime.toISOString(),
+    amount: t.amount,
+    status: t.status,
+    provider: t.provider
+  }));
 }
 
-export default async function() {
-    const balance = await getBalance();
-    const transactions = await getOnRampTransactions();
+export default async function Page() {
+  const session = await getServerSession(authOptions);
 
-    return <div className="w-screen">
-        hi
-        <div className="text-4xl text-[#6a51a6] pt-8 mb-8 font-bold">
-            Transfer
+  // 👇 Ensure user is logged in
+  if (!session?.user?.id) {
+    redirect("/");
+  }
+
+  const userId = Number(session.user.id);
+
+  const balance = await getBalance(userId);
+  const transactions = await getOnRampTransactions(userId);
+
+  return (
+    <div className="w-screen">
+      <div className="text-4xl text-[#6a51a6] pt-8 mb-4 font-bold">
+        Transfer
+      </div>
+
+      {/* ✅ Instructional Section */}
+      <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 rounded-lg p-4 mb-6 shadow-sm">
+        <p className="font-semibold mb-1">ℹ️ How to Add Money:</p>
+        <ul className="list-disc list-inside text-sm space-y-1">
+          <li>Enter the amount you want to add.</li>
+          <li>Choose your bank and click <strong>Add Money</strong>.</li>
+          <li>You will be redirected to your banking page.</li>
+          <li>Click the browser’s <strong>back arrow</strong> to return here.</li>
+          <li>Wait <strong>5 seconds</strong>, then <strong>refresh the page</strong>.</li>
+          <li>You will see your updated balance and transaction status.</li>
+        </ul>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
+        <div>
+          <AddMoney />
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-            <div>
-                <AddMoney />
-            </div>
-            <div>
-                <BalanceCard amount={balance.amount} locked={balance.locked} />
-                <div className="pt-4">
-                    <OnRampTransactions transactions={transactions} />
-                </div>
-            </div>
+        <div>
+          <BalanceCard amount={balance.amount} locked={balance.locked} />
+          <div className="pt-4">
+            <OnRampTransactions transactions={transactions} />
+          </div>
         </div>
+      </div>
     </div>
+  );
 }

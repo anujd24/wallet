@@ -23,6 +23,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "recoil": "^0.7.7"
+    "framer-motion": "^12.18.1",
+    "recoil": "^0.7.7",
+    "swr": "^2.3.3"
   }
 }

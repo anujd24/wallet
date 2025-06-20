@@ -1,29 +1,70 @@
 "use server";
 
+import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
-import prisma from "@repo/db/client";
 
-export async function createOnRampTransaction(amount:number, provider:string){
+export async function createOnRampTransaction(provider: string, amount: number) {
     const session = await getServerSession(authOptions);
-    const token = Math.random().toString();
-    const userId = session.user.id;
-    if(!userId){
-        return{
-            message:"User not logged in!"
-        }
+    if (!session?.user || !session.user?.id) {
+        return {
+            message: "Unauthenticated request"
+        };
     }
-    await prisma.onRampTransaction.create({
-        data:{
-            userId: Number(userId),
-            amount:amount,
-            status:"Processing",
-            startTime: new Date(),
+
+    const token = (Math.random() * 1000).toString();
+
+    const transaction = await prisma.onRampTransaction.create({
+        data: {
             provider,
-            token:token
+            status: "Processing",
+            startTime: new Date(),
+            token: token,
+            userId: Number(session.user.id),
+            amount: amount * 100
         }
-    })
+    });
+
+    // ✅ Simulate the transaction being processed and update DB
+    setTimeout(async () => {
+        // 1. Update transaction to "Success"
+        await prisma.onRampTransaction.update({
+            where: { id: transaction.id },
+            data: {
+                status: "Success"
+            }
+        });
+
+        // 2. Update user's balance
+        const existingBalance = await prisma.balance.findFirst({
+            where: {
+                userId: Number(session.user.id)
+            }
+        });
+
+        if (existingBalance) {
+            await prisma.balance.update({
+                where: {
+                    id: existingBalance.id
+                },
+                data: {
+                    amount: {
+                        increment: amount * 100
+                    }
+                }
+            });
+        } else {
+            await prisma.balance.create({
+                data: {
+                    userId: Number(session.user.id),
+                    amount: amount * 100,
+                    locked: 0
+                }
+            });
+        }
+    }, 3000); // 3 seconds delay to simulate bank callback
+
     return {
-        message: "On ramp transaction added"
-    }
+        message: "Transaction created and processing"
+    };
 }

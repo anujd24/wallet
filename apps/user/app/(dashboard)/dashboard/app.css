@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --secondary: #00cec9;
+  --dark: #2d3436;
+  --light: #f5f6fa;
+  --success: #00b894;
+  --danger: #d63031;
+  --gray: #636e72;
+  --light-gray: #dfe6e9;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+header h1 span {
+  color: var(--primary);
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 200px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-icon {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.card-content h3 {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.quick-actions button {
+  background-color: var(--light);
+  border: none;
+  padding: 12px 0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quick-actions button span {
+  font-size: 20px;
+}
+
+.transactions-section {
+  margin-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  color: var(--dark);
+}
+
+.section-header button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: var(--light);
+  border-radius: 12px;
+}
+
+.transaction-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-light);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.transaction-details h4 {
+  font-size: 15px;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.transaction-details p {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.transaction-amount {
+  font-weight: 600;
+}
+
+.transaction-amount.positive {
+  color: var(--success);
+}
+
+.transaction-amount.negative {
+  color: var(--danger);
+}
+
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Animation for the floating emojis */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.card-icon {
+  animation: float 3s ease-in-out infinite;
+}

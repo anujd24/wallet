@@ -1,0 +1,221 @@
+/* /app/(dashboard)/dashboard/page.module.css */
+
+/* Base styles - similar to original but scoped to modules */
+.app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3436; /* var(--dark) */
+}
+
+.header h1 span {
+  color: #6c5ce7; /* var(--primary) */
+}
+
+.profileIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #6c5ce7; /* var(--primary) */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Cards container */
+.cardsContainer {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.cardsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual card styles */
+.card {
+  min-width: 200px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe); /* var(--primary) to var(--primary-light) */
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardIcon {
+  font-size: 24px;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cardContent h3 {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.cardContent p {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Quick actions */
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.actionButton {
+  background-color: #f5f6fa; /* var(--light) */
+  border: none;
+  padding: 12px 0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3436; /* var(--dark) */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton span {
+  font-size: 20px;
+}
+
+/* Transactions section */
+.transactionsSection {
+  margin-top: 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sectionHeader h2 {
+  font-size: 18px;
+  color: #2d3436; /* var(--dark) */
+}
+
+.sectionHeader button {
+  background: none;
+  border: none;
+  color: #6c5ce7; /* var(--primary) */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.transactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.transactionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #f5f6fa; /* var(--light) */
+  border-radius: 12px;
+}
+
+.transactionDetails {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transactionIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #a29bfe; /* var(--primary-light) */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.transactionDetails h4 {
+  font-size: 15px;
+  color: #2d3436; /* var(--dark) */
+  margin-bottom: 2px;
+}
+
+.transactionDetails p {
+  font-size: 12px;
+  color: #636e72; /* var(--gray) */
+}
+
+.transactionAmount {
+  font-weight: 600;
+}
+
+.positive {
+  color: #00b894; /* var(--success) */
+}
+
+.negative {
+  color: #d63031; /* var(--danger) */
+}
+
+/* Floating action button */
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #6c5ce7; /* var(--primary) */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

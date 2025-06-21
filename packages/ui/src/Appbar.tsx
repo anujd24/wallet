@@ -21,7 +21,7 @@ export const Appbar = ({
       GoPay
     </div>
     <div>
-      <Button onClick={user ? onSignout : onSignin}>
+      <Button onClick={user ? onSignout : onSignin} variant="inverted">
         {user ? "Logout" : "Login"}
       </Button>
     </div>

@@ -26,6 +26,4 @@ export const Appbar = ({
       </Button>
     </div>
   </div>
-);
-
-}
+)};

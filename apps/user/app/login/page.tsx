@@ -45,23 +45,21 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left: Image */}
-      <div className="md:w-1/2 bg-blue-600 hidden md:flex items-center justify-center p-12">
-        <div className="relative w-full h-96">
-          <Image 
-            src="https://img.freepik.com/free-vector/digital-wallet-concept-illustration_114360-2284.jpg" 
+      <div className="md:w-1/2 hidden md:flex items-center justify-center p-12">
+        <div className="w-[700px] h-[600px] relative hidden lg:block -mt-20">
+          < img
+            src="../login.jpg" 
             alt="Digital Wallet Illustration"
-            fill
-            className="object-contain"
-            priority
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
 
       {/* Right: Form */}
-      <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-8">
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center p-8 -mt-26">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">GOPAY</h1>
+            <h1 className="text-3xl font-bold text-[#0d47a1] mb-2">GOPAY</h1>
             <h2 className="text-xl text-gray-600 mb-4">SECURE PAYMENTS</h2>
             <p className="text-gray-500 mb-6">Where Your Financial Freedom Begins</p>
             <p className="text-sm text-gray-400">Manage your money securely with just a few taps</p>
@@ -98,30 +96,16 @@ export default function LoginPage() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
                 required
               />
-              <div className="flex justify-end mt-2">
-                <Link href="/forgot-password" className="text-sm text-blue-600 hover:underline">
-                  Forgot password?
-                </Link>
-              </div>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition disabled:opacity-70"
+              className="w-full bg-[#0d47a1] text-white py-3 px-4 rounded-lg font-medium cursor-pointer hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition disabled:opacity-70"
             >
               {loading ? "Signing in..." : "SIGN IN"}
             </button>
           </form>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-gray-500">
-              New to GoPay?{' '}
-              <Link href="/register" className="text-blue-600 font-medium hover:underline">
-                Create an Account
-              </Link>
-            </p>
-          </div>
         </div>
       </div>
     </div>

@@ -12,21 +12,28 @@ export default async function Page() {
   // Not logged in — show landing page
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-blue-50">
-      <div className="flex-1 p-10 flex flex-col justify-center items-start">
-        <h1 className="text-5xl font-bold text-gray-900 mb-6">Fast, safe social payments</h1>
-        <p className="text-lg text-gray-700 mb-6 max-w-lg">
-          Pay, get paid, grow a business, and more. Join the millions using GoPay.
-        </p>
-        <a href="/login" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow">
-  Get Started
-</a>
+      <div className="flex-1 flex items-center justify-center px-2 md:px-12 py-12 z-10 relative">
+  <div className="max-w-xl text-left">
+    <h1 className="text-4xl sm:text-5xl font-bold text-[#0d47a1] leading-tight mb-6">
+      Fast, safe social payments
+    </h1>
+    <p className="text-base sm:text-lg text-gray-800 mb-8">
+      Pay, get paid, grow a business, and more. Join the millions using GoPay.
+    </p>
+    <a
+      href="/login"
+      className="inline-block px-6 py-3 bg-[#0d47a1] hover:bg-blue-700 text-white font-semibold rounded-full shadow transition duration-300"
+    >
+      Get Started
+    </a>
+  </div>
+</div>
 
-      </div>
-      <div className="flex-1 relative">
+      <div className="w-[700px] h-[700px] relative hidden lg:block">
         <img
-          src="/landingPageImage.png"
+          src="/Landing.png"
           alt="Social Payment App"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       </div>
     </div>

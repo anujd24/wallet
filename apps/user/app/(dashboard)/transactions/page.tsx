@@ -55,7 +55,7 @@ export default function TransactionsPage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as TransactionStatus)}
-                className="appearance-none bg-white border border-gray-300 rounded-full py-2 pl-4 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#6a51a6]"
+                className="appearance-none cursor-pointer bg-white border border-gray-300 rounded-full py-2 pl-4 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#6a51a6]"
               >
                 {(["All", "Success", "Failure", "Processing"] as TransactionStatus[]).map((status) => (
                   <option key={status} value={status}>

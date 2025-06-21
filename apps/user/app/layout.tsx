@@ -26,14 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-      {/* <AppbarClient /> */}
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <div>
           <AppbarClient />
-          {children}
-          </div>
+          
+          {/* Add padding-top so content doesn't go under the navbar */}
+          <main className="pt-16">
+            {children}
+          </main>
         </body>
       </Providers>
     </html>
   );
 }
+

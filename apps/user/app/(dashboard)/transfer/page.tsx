@@ -53,7 +53,7 @@ export default async function Page() {
         Transfer
       </div>
 
-      {/* ✅ Instructional Section */}
+      {/*  Instructional Section */}
       <div className="w-[1000px] bg-blue-50 border border-blue-300 text-blue-800 rounded-lg p-4 mb-6 ml-4 mt-6 shadow-sm">
         <p className="font-semibold mb-1">ℹ️ How to Add Money:</p>
         <ul className="list-disc list-inside text-sm space-y-2 pl-4">

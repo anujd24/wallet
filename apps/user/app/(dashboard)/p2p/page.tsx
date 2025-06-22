@@ -7,9 +7,9 @@ import { Card } from "@repo/ui/card";
 
 export default function P2PPage() {
   return (
-    <div className="min-h-screen bg-[#F4F6F8] p-4 md:p-8">
+    <div className="min-h-screen w-full bg-[#F4F6F8] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#6a51a6] mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#0d47a1] mb-8">
           Peer-to-Peer Transfer
         </h1>
         
@@ -21,16 +21,14 @@ export default function P2PPage() {
           
           {/* Recent Transactions Section */}
           <div className="space-y-6">
-            <Card title="Recent P2P Transfers" className="h-full p-4">
-              <RecentTransactions type="p2p" />
-            </Card>
+            
             
             {/* Help Section */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h3 className="text-lg font-semibold text-[#6a51a6] mb-3">
+            <div className="bg-blue-50 border border-blue-300 text-blue-800 rounded-lg p-4 mb-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-blue-700 mb-3">
                 💡 How to Send Money
               </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 pl-2 text-sm text-gray-600">
                 <li className="flex items-start">
                   <span className="mr-2">1.</span>
                   <span>Enter recipient's phone number</span>

@@ -49,14 +49,14 @@ export default async function Page() {
 
   return (
     <div className="w-screen">
-      <div className="text-4xl text-[#6a51a6] pt-8 mb-4 font-bold">
+      <div className="text-4xl text-[#0d47a1] pt-8 mb-4 font-bold">
         Transfer
       </div>
 
       {/* ✅ Instructional Section */}
-      <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 rounded-lg p-4 mb-6 shadow-sm">
+      <div className="w-[1000px] bg-blue-50 border border-blue-300 text-blue-800 rounded-lg p-4 mb-6 ml-4 mt-6 shadow-sm">
         <p className="font-semibold mb-1">ℹ️ How to Add Money:</p>
-        <ul className="list-disc list-inside text-sm space-y-1">
+        <ul className="list-disc list-inside text-sm space-y-2 pl-4">
           <li>Enter the amount you want to add.</li>
           <li>Choose your bank and click <strong>Add Money</strong>.</li>
           <li>You will be redirected to your banking page.</li>

@@ -41,7 +41,7 @@ export function SendCard() {
       <Card title="Send Money" className="border-0 shadow-none p-4">
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 ">
               Recipient's Number
             </label>
             <TextInput
@@ -53,7 +53,7 @@ export function SendCard() {
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 ">
               Amount (₹)
             </label>
             <TextInput
@@ -61,7 +61,7 @@ export function SendCard() {
               value={amount}
               onChange={(value) => setAmount(value)}
               type="number"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#6a51a6] focus:border-transparent"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 " 
             />
           </div>
           
@@ -96,7 +96,7 @@ export function SendCard() {
       </Card>
       
       <div className="mt-6 text-center text-sm text-gray-500">
-        <p>Transactions are secured with bank-level encryption</p>
+        <p className="text-md">Transactions are secured with bank-level encryption</p>
       </div>
     </div>
   );

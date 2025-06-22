@@ -38,14 +38,14 @@ export default function TransactionsPage() {
     : transactions.filter((t) => t.status === statusFilter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-2 md:p-8">
+    <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 to-gray-100 p-2 md:p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-20">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#6a51a6]">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#0d47a1]">
               Transaction History
             </h1>
-            <p className="text-gray-500 mt-1">
+            <p className="text-gray-500 pl-2 pt-4">
               View all your financial transactions
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function TransactionsPage() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as TransactionStatus)}
-                className="appearance-none cursor-pointer bg-white border border-gray-300 rounded-full py-2 pl-4 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#6a51a6]"
+                className="appearance-none cursor-pointer bg-white border border-gray-300 rounded-full py-2 pl-4 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-[#0d47a1]"
               >
                 {(["All", "Success", "Failure", "Processing"] as TransactionStatus[]).map((status) => (
                   <option key={status} value={status}>
@@ -73,8 +73,8 @@ export default function TransactionsPage() {
         </div>
 
         <Card title="" className="border-0 shadow-sm rounded-xl overflow-hidden">
-          <div className="bg-gradient-to-r from-[#6a51a6] to-[#5a4196] p-4">
-            <h2 className="text-lg font-semibold text-white">
+          <div className="bg-gradient-to-r from-blue-900 to-[#0d47a1] p-4 rounded-2xl">
+            <h2 className="text-lg font-semibold text-white ">
               {statusFilter} Transactions
             </h2>
           </div>

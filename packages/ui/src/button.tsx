@@ -23,7 +23,7 @@ export const Button = ({
   const variantClasses =
     variant === "inverted"
       ? "bg-white text-blue-600 border border-white hover:bg-transparent hover:text-white cursor-pointer"
-      : "bg-blue-600 text-white hover:bg-blue-700";
+      : "bg-blue-800 text-white hover:bg-blue-700";
 
   return (
     <button

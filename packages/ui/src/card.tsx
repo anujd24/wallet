@@ -18,6 +18,7 @@ export function Card({
       <h1 className="text-lg font-semibold text-blue-900 border-b pb-2 mb-4">
         {title}
       </h1>
+      
       {children}
     </div>
   );

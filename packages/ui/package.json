@@ -12,6 +12,7 @@
   "./textinput": "./src/textinput.tsx"
 },
   "scripts": {
+    "build": "tsc",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
   },

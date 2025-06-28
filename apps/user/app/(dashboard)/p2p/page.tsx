@@ -5,6 +5,7 @@ import { SendCard } from "../../../components/SendCard";
 import { RecentTransactions } from "../../../components/RecentTransactions";
 import { Card } from "@repo/ui/card";
 
+
 export default function P2PPage() {
   return (
     <div className="min-h-screen w-full bg-[#F4F6F8] p-4 md:p-8">

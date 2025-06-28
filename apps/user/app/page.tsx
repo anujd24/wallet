@@ -31,6 +31,7 @@ export default async function Page() {
 
       <div className="w-[700px] h-[700px] relative hidden lg:block">
         <img
+        
           src="/Landing.png"
           alt="Social Payment App"
           className="w-full h-full object-contain"

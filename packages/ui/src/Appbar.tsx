@@ -12,8 +12,6 @@ interface AppbarProps {
     onSignout: any
 }
 
-
-
 export const Appbar = ({
     user,
     onSignin,

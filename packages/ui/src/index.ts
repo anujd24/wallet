@@ -1,4 +1,3 @@
-// packages/ui/src/index.ts
 export * from "./appbar";
 export * from './select';
 export * from './textinput';

@@ -28,6 +28,7 @@ export default async function Page() {
     </a>
   </div>
 </div>
+
       <div className="w-[700px] h-[700px] relative hidden lg:block">
         <img
           src="/Landing.png"

@@ -1,10 +1,9 @@
 // app/p2p/page.tsx
 'use client';
 
-
 import { SendCard } from "../../../components/SendCard";
-// import { RecentTransactions } from "../../../components/RecentTransactions";
-// import { Card } from "@repo/ui/card";
+import { RecentTransactions } from "../../../components/RecentTransactions";
+import { Card } from "@repo/ui/card";
 
 export default function P2PPage() {
   return (

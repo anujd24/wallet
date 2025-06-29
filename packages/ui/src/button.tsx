@@ -25,6 +25,7 @@ export const Button = ({
       ? "bg-white text-blue-600 border border-white hover:bg-transparent hover:text-white cursor-pointer"
       : "bg-blue-800 text-white hover:bg-blue-700";
 
+      
   return (
     <button
       onClick={onClick}

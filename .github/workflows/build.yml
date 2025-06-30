@@ -23,6 +23,6 @@ jobs:
         run: npm run db:generate
 
       - name: Build Project with Turbo
-        run: npx turbo run build --filter=web
+        run: npx turbo run build --filter=web...
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

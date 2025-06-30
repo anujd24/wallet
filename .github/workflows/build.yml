@@ -27,6 +27,13 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
       
+
+      - name: Build UI package first
+        run: |
+          cd packages/ui
+          npm install
+          npm run build    
+          
       - name: Build with Turbo
         run: npx turbo run build
         env:

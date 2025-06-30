@@ -2,17 +2,18 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "private": true,
- "exports": {
-  "./button": "./src/button.tsx",
-  "./card": "./src/card.tsx",
-  "./code": "./src/code.tsx",
-  "./AppBar": "./src/AppBar.tsx",
-  "./Select": "./src/Select.tsx",
-  "./center": "./src/center.tsx",
-  "./TextInput": "./src/TextInput.tsx"
-},
+  "exports": {
+    "./button": "./src/button.tsx",
+    "./card": "./src/card.tsx",
+    "./code": "./src/code.tsx",
+    "./AppBar": "./src/AppBar.tsx",
+    "./Select": "./src/Select.tsx",
+    "./center": "./src/center.tsx",
+    "./TextInput": "./src/TextInput.tsx"
+  },
   "scripts": {
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "dev": "...",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
@@ -22,7 +23,7 @@
     "@repo/typescript-config": "*",
     "@turbo/gen": "^2.4.4",
     "@types/node": "^22.13.10",
-    "@types/react": "19.0.12",
+    "@types/react": "^19.0.12",
     "@types/react-dom": "19.0.4",
     "eslint": "^9.23.0",
     "typescript": "5.8.2"

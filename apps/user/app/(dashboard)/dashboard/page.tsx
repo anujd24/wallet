@@ -23,7 +23,7 @@ interface WalletData {
 
 export default function HomePage() {
   const router = useRouter();
-  const { data, error, mutate } = useSWR<WalletData>('/api/wallet', fetcher, {
+  const { data, error } = useSWR<WalletData>('/api/wallet', fetcher, {
     refreshInterval: 3000,
     revalidateOnFocus: true,
   });

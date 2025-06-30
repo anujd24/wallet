@@ -16,10 +16,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
       
+      - name: Update npm
+        run: npm install -g npm@latest
+      
       - name: Install dependencies
-        run: |
-          npm install -g npm@latest
-          npm install
+        run: npm install
       
       - name: Generate Prisma Client
         run: npm run db:generate

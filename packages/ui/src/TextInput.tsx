@@ -2,6 +2,7 @@
 
 import React from "react";
 
+
 type TextInputProps = {
     placeholder: string;
     onChange: (value: string) => void;

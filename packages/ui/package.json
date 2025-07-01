@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "dev": "...",
+    "dev": "tsc --watch --preserveWatchOutput",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
   },

@@ -1,0 +1,32 @@
+FROM node:20.12.0-alpine3.19
+
+# Set root monorepo directory
+WORKDIR /usr/src/app
+
+# 1. Copy only essential config files first (better caching)
+COPY package.json package-lock.json turbo.json tsconfig.json ./
+
+# 2. Copy package manifests
+COPY packages/package.json packages/
+COPY apps/user/package.json apps/user/
+COPY apps/bank-webhook/package.json apps/bank-webhook/
+
+# 3. Install root dependencies
+RUN npm install
+
+# 4. Copy all source files (after dependency install for cache optimization)
+COPY . .
+
+# 5. Generate Prisma client
+RUN npm run db:generate
+
+# 6. Build only the user app and its dependencies
+RUN npx turbo run build --filter=user...
+
+# 7. Set final working directory to Next.js app
+WORKDIR /usr/src/app/apps/user
+
+ENV PORT=3001
+
+# 8. Run production server
+CMD ["npm", "run", "start"]

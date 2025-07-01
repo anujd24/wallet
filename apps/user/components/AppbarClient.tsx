@@ -45,7 +45,8 @@ export function AppbarClient() {
         user={session?.user}
         onSignin={signIn}
         onSignout={async () => {
-          await signOut({ callbackUrl: "/" }); // ✅ Redirect to homepage after logout
+          await signOut({ callbackUrl: "/" });
+          window.location.href = "/" ;
         }}
       />
     </div>

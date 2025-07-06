@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import { ReactNode } from "react";
 import { Button } from "./button";
 
 interface AppbarProps {
@@ -9,7 +9,8 @@ interface AppbarProps {
     },
     // TODO: can u figure out what the type should be here?
     onSignin: any,
-    onSignout: any
+    onSignout: any,
+    children?: ReactNode
 }
 
 export const Appbar = ({

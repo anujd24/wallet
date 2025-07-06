@@ -50,6 +50,7 @@ export const AddMoney = () => {
                     label="Amount" 
                     placeholder="Amount" 
                     type="number"
+                    className=""
                     onChange={(val) => setAmount(Number(val))} 
                 />
                 <div className="py-4 text-left">Bank</div>

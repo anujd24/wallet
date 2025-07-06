@@ -1,10 +1,10 @@
 "use client";
 
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: "primary" | "inverted"; // ✅ variant support
+  children?: ReactNode;
+  variant?: "primary" | "inverted"; 
   disabled?: boolean;
 }
 

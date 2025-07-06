@@ -33,7 +33,7 @@ export const Button = ({
       className={`${baseClasses} ${variantClasses} ${disabledClasses} ${className}`}
       {...rest}
     >
-      {children}
+      {children as ReactNode}
     </button>
   );
 };

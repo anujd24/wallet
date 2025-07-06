@@ -24,7 +24,7 @@ export const TextInput = ({
         <div className={`pt-2 ${className}`}>
             {label && (
                 <label className="block mb-2 text-sm font-medium text-gray-900">
-                    {label}
+                    {label as ReactNode}
                 </label>
             )}
             <input

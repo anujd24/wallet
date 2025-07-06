@@ -6,6 +6,6 @@ export function Code({
 }: {
   children: ReactNode;
   className?: string;
-}): JSX.Element {
+}) {
   return <code className={className}>{children}</code>;
 }

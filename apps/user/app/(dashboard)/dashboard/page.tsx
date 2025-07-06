@@ -7,18 +7,20 @@ import { useRouter } from 'next/navigation';
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
+interface Transaction {
+  id: string;
+  time: string;
+  amount: number;
+  status: 'Success' | 'Failure' | 'Processing';
+  provider: string;
+}
+
 interface WalletData {
   balance: number;
   locked: number;
   income: number;
   expenses: number;
-  recentTransactions: {
-    id: string;
-    time: string;
-    amount: number;
-    status: 'Success' | 'Failure' | 'Processing';
-    provider: string;
-  }[];
+  recentTransactions?: Transaction[]; // Made optional
 }
 
 export default function HomePage() {
@@ -34,6 +36,13 @@ export default function HomePage() {
 
   if (error) return <div className="p-4 text-red-500">Failed to load data</div>;
   if (!data) return <div className="p-4">Loading...</div>;
+
+const safeData = {
+    balance: data.balance || 0,
+    income: data.income || 0,
+    expenses: data.expenses || 0,
+    recentTransactions: data.recentTransactions || [] // Fallback to empty array
+  };
 
   const balanceCards = [
     { title: "Total Balance", amount: data.balance, icon: "💰" },
@@ -93,13 +102,13 @@ export default function HomePage() {
       </div>
 
       <Card title="Recent Transactions">
-        {data.recentTransactions.length === 0 ? (
+        {safeData.recentTransactions.length === 0 ? (
           <div className="text-center py-8 text-slate-500">
             No recent transactions
           </div>
         ) : (
           <div className="space-y-4 pt-4">
-            {data.recentTransactions.slice(0, 5).map((t) => (
+            {safeData.recentTransactions.slice(0, 5).map((t) => (
               <div
                 key={t.id}
                 className="flex flex-col sm:flex-row sm:justify-between border-b pb-3  hover:bg-gray-50 p-2 rounded"

@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import { ReactNode } from "react";
 
 export function Card({
   title,
@@ -8,9 +8,9 @@ export function Card({
   className = "",
 }: {
   title: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
-}): JSX.Element {
+}) {
   return (
     <div
       className={`bg-white rounded-2xl shadow-md border border-gray-200 p-4 w-full${className}`}

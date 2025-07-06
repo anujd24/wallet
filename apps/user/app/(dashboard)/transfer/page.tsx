@@ -37,7 +37,6 @@ async function getOnRampTransactions(userId: number) {
 export default async function Page() {
   const session = await getServerSession(authOptions);
 
-  // 👇 Ensure user is logged in
   if (!session?.user?.id) {
     redirect("/");
   }

@@ -5,11 +5,11 @@ import { ReactNode } from "react";
 type TextInputProps = {
     placeholder: string;
     onChange: (value: string) => void;
-    label?: ReactNode;
+    label?: string;
     type?: string;
     value?: string;  // Changed from 'any' to 'string' for type safety
-    className?: string;
-    children?: ReactNode;  // Added to satisfy ReactNode requirements
+    className?: string;  // Added to satisfy ReactNode requirements
+    children?: never;
 };
 
 export const TextInput = ({

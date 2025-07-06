@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Image from 'next/image';
-import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,7 +12,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ Prevent logged-in users from seeing login page
   useEffect(() => {
     if (status === "authenticated") {
       router.replace("/dashboard");
@@ -26,7 +23,7 @@ export default function LoginPage() {
     setLoading(true);
 
     const res = await signIn("credentials", {
-      redirect: false, // manual redirect
+      redirect: false, 
       phone,
       password,
     });
@@ -40,7 +37,7 @@ export default function LoginPage() {
     setLoading(false);
   };
 
-  if (status === "loading") return null; // prevents flickering
+  if (status === "loading") return null; 
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">

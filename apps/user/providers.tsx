@@ -1,11 +1,19 @@
 "use client"
-import { RecoilRoot } from "recoil";
-import { SessionProvider } from "next-auth/react";
 
-export const Providers = ({children}: {children: React.ReactNode}) => {
-    return <RecoilRoot>
-        <SessionProvider>
+import { type ReactNode } from "react"
+import { RecoilRoot } from "recoil";
+import { AuthProvider } from "./components/authProvider";
+
+export const Providers = ({children}: {children: ReactNode}) => {
+    return (
+    <RecoilRoot>
+        <AuthProvider
+        refetchInterval={5 * 60}
+        refetchOnWindowFocus={true}
+        >
             {children}
-        </SessionProvider>
+            </AuthProvider>
+        
     </RecoilRoot>
+    )
 }

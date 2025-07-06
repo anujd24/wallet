@@ -25,7 +25,6 @@ export async function createOnRampTransaction(provider: string, amount: number) 
         }
     });
 
-    // ✅ Simulate the transaction being processed and update DB
     setTimeout(async () => {
         // 1. Update transaction to "Success"
         await prisma.onRampTransaction.update({
@@ -62,7 +61,7 @@ export async function createOnRampTransaction(provider: string, amount: number) 
                 }
             });
         }
-    }, 3000); // 3 seconds delay to simulate bank callback
+    }, 3000); 
 
     return {
         message: "Transaction created and processing"

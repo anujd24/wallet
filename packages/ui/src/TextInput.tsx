@@ -1,32 +1,36 @@
 "use client"
 
-import React from "react";
-
+import { ReactNode } from "react";
 
 type TextInputProps = {
     placeholder: string;
     onChange: (value: string) => void;
-    label?: string;
-    type?: string;  // Make optional with default value
-    value? : any;
+    label?: ReactNode;
+    type?: string;
+    value?: string;  // Changed from 'any' to 'string' for type safety
     className?: string;
+    children?: ReactNode;  // Added to satisfy ReactNode requirements
 };
 
 export const TextInput = ({
     placeholder,
     onChange,
     label,
-    type = "text"  // Default to "text" if not provided
+    type = "text",
+    value,
+    className
 }: TextInputProps) => {
     return (
-        <div className="pt-2">
-            <label className="block mb-2 text-sm font-medium text-gray-900">
-                {label}
-            </label>
+        <div className={`pt-2 ${className}`}>
+            {label && (
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                    {label}
+                </label>
+            )}
             <input
                 onChange={(e) => onChange(e.target.value)}
-                type={type}  // Use the type prop
-                id="first_name"
+                type={type}
+                value={value}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder={placeholder}
             />

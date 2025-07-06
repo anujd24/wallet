@@ -10,6 +10,7 @@ interface AuthProviderProps extends Omit<OriginalSessionProviderProps, 'children
   children: ReactNode
 }
 
+
 export const AuthProvider = ({ children, ...props }: AuthProviderProps) => {
   const Provider = OriginalSessionProvider as React.ComponentType<AuthProviderProps>
   return <Provider {...props}>{children}</Provider>

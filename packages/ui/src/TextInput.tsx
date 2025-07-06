@@ -8,8 +8,7 @@ type TextInputProps = {
     label?: ReactNode;
     type?: string;
     value?: string;  // Changed from 'any' to 'string' for type safety
-    className?: string;
-    children?: ReactNode;  // Added to satisfy ReactNode requirements
+    className?: string;  // Added to satisfy ReactNode requirements
 };
 
 export const TextInput = ({

@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
-  variant?: "primary" | "inverted"; 
+  variant?: "primary" | "inverted"; // ✅ variant support
   disabled?: boolean;
 }
 
@@ -33,7 +33,7 @@ export const Button = ({
       className={`${baseClasses} ${variantClasses} ${disabledClasses} ${className}`}
       {...rest}
     >
-      {children as ReactNode}
+      {children}
     </button>
   );
 };

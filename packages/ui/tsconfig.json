@@ -4,7 +4,9 @@
     "jsx": "react-jsx",  
     "jsxImportSource": "react",  
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

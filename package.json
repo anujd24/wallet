@@ -2,9 +2,9 @@
   "name": "financial-app",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:generate": "cd packages/db && npx prisma generate && cd ../..",
     "start-user-app": "cd ./apps/user && npm run start"
@@ -13,7 +13,8 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "prettier": "^3.5.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=18"
@@ -21,12 +22,12 @@
   "packageManager": "npm@10.2.4",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "packages/ui"
+    "packages/*"
   ],
   "dependencies": {
+    "@repo/typescript-config": "file:packages/typescript-config",
     "@types/next-auth": "^3.15.0",
-    "@types/react": "^18.2.23",
+    "@types/react": "^19.1.0",
     "framer-motion": "^12.18.1",
     "next-auth": "^4.24.11",
     "react": "^19.1.0",

@@ -1,8 +1,8 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import {ReactNode} from "react";
 
-export const SidebarItem = ({ href, title, icon }: { href: string; title: string; icon: React.ReactNode }) => {
+export const SidebarItem = ({ href, title, icon }: { href: string; title: string; icon: ReactNode }) => {
     const router = useRouter();
     const pathname = usePathname()
     const selected = pathname === href

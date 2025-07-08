@@ -23,7 +23,7 @@ jobs:
         context: .
         file: ./docker/Dockerfile.user
         push: true
-        tags: anujd10/financial-app:latest  # Replace with your Docker Hub username and repository
+        tags: anujd10/financial-app:latest  # Replace with your Docker Hub username 
 
     - name: Verify Pushed Image
       run: docker pull anujd10/financial-app:latest  # Replace with your Docker Hub username and repository

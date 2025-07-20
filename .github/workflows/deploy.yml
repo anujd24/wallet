@@ -39,4 +39,4 @@ jobs:
           sudo docker pull anujd10/financial-app:latest
           sudo docker stop financial-app || true
           sudo docker rm financial-app || true
-          sudo docker run -d --name financial-app -p 3001:3001  -e NEXTAUTH_URL=https://ad.finpaynowcenter.tech -e NODE_ENV=production anujd10/financial-app:latest
+          sudo docker run -e DATABASE_URL = "${{secrets.DB_URL}}" -d --name financial-app -p 3001:3001  -e NEXTAUTH_URL=https://ad.finpaynowcenter.tech -e NODE_ENV=production anujd10/financial-app:latest
